@@ -1,0 +1,208 @@
+/*定义全局样式*/
+html{
+	margin: 0;
+	padding: 0;
+}
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #98ac34;
+}
+/*定义div样式*/
+#nav{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+/*实现列表样式*/
+#nav ul li{
+	width: 12%;
+	text-align: center;
+	list-style-type: none;
+	display: inline-block;
+	position: relative;
+	left: 20%;
+	top: 50%;
+	margin-top: 10%;
+}
+/*实现a标签导航字体样式*/
+.tooltip{
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 700;
+	color: rgba(0,0,0,0.3);
+	position: relative;
+	z-index: 100;
+	/*定义transition属性时要有元素的最初和最终的结果状态,要不然定义过渡属性就没有效果,也没有意义*/
+	-webkit-transition:color 0.6s ease-in-out;
+	-moz-transition:color 0.6s ease-in-out;
+	-o-transition:color 0.6s ease-in-out;
+	-ms-transition:color 0.6s ease-in-out;
+	transition:color 0.6s ease-in-out;
+
+}
+/*当滑过a标签时,字体的颜色发生一个变化*/
+.tooltip:hover{
+	color: rgba(255,255,255,1);
+}
+/*实现span标签的圆形*/
+.tooltip-con {
+	position: absolute;
+	border-radius: 50%;
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	background: #fff;
+	left: 50%;
+	margin-left: -40px;
+	bottom: 100%;
+	margin-bottom: 20px;
+	text-align: center;
+	opacity: 0;
+	z-index: 1000;/*实现span标签的优先级比a标签的高*/
+	/*什么标签变化了,就在什么标签里面定义过渡的变化属性*/
+	/*属性值可以写all,表示所有变化的属性*/
+	-webkit-transition:opacity 0.6s  ease-in-out,-webkit-transform 0.6s ease-in-out;
+	-moz-transition:opacity 0.6s ease-in-out,-moz-transform 0.6s ease-in-out;
+	-o-transition:opacity 0.6s ease-in-out,-o-transform 0.6s ease-in-out;
+	-ms-transition:opacity 0.6s ease-in-out,-ms-transform 0.6s ease-in-out;
+	transition:opacity 0.6s ease-in-out,transform 0.6s ease-in-out;
+}
+/*实现圆里面的小图标*/
+.tooltip-con i{
+	position: absolute;
+	color: #98ac34;
+	left: 50%;
+	top:50%;
+	margin-left: -6.5px;
+	margin-top: -20px;
+	opacity: 0;
+	/*什么标签变化了,就在什么标签里面定义过渡属性*/
+	-webkit-transition:opacity 0.6s  ease-in-out,-webkit-transform 0.6s ease-in-out;
+	-moz-transition:opacity 0.6s ease-in-out,-moz-transform 0.6s ease-in-out;
+	-o-transition:opacity 0.6s ease-in-out,-o-transform 0.6s ease-in-out;
+	-ms-transition:opacity 0.6s ease-in-out,-ms-transform 0.6s ease-in-out;
+	transition:opacity 0.6s ease-in-out,transform 0.6s ease-in-out;
+}
+/*导入svg图形插入圆形下面的小尖尖*/
+.tooltip-con::after{
+	display: block;
+	content: "";
+	width: 30px;
+	height: 20px;
+	background:url(tooltip1.svg) no-repeat center center;
+	position: absolute;
+	top:100%;
+	left: 50%;
+	margin-left: -15px;
+	margin-top: -10px;
+}
+/*转换效果用transform属性*/
+/*选中a标签下的span标签,3d转换会开启硬件加速*/
+/*rotate的xyz是系数0-1之间*/
+/*无论是sacle还是rotate,旋转的时候默认以图形的中心点进行旋转*/
+.tooltip-effect-1 .tooltip-con{
+	-webkit-transform:translate3d(0,10px,0) rotate3d(1,1,1,45deg);
+	-moz-transform:translate3d(0,10px,0) rotate3d(1,1,1,45deg); 
+	-o-transform:translate3d(0,10px,0) rotate3d(1,1,1,45deg); 
+	-ms-transform:translate3d(0,10px,0) rotate3d(1,1,1,45deg); 
+	transform:translate3d(0,10px,0) rotate3d(1,1,1,45deg); 
+	/*旋转的时候需要定义中心点*/
+	-webkit-transform-origin:50% 100%;
+	-moz-transform-origin:50% 100%;
+	-o-transform-origin:50% 100%;
+	-ms-transform-origin:50% 100%;
+	transform-origin:50% 100%;
+}
+/*定义图标的缩放效果*/
+.tooltip-effect-1 .tooltip-con i{
+	-webkit-transform:scale3d(0,0,1);
+	-moz-transform:scale3d(0,0,1); 
+	-o-transform:scale3d(0,0,1); 
+	-ms-transform:scale3d(0,0,1); 
+	transform:scale3d(0,0,1); 
+}
+.tooltip-effect-2 .tooltip-con{
+	-webkit-transform:translate3d(0,20px,0);
+	-moz-transform:translate3d(0,20px,0); 
+	-o-transform:translate3d(0,20px,0); 
+	-ms-transform:translate3d(0,20px,0); 
+	transform:translate3d(0,20px,0); 
+}
+/*定义图标的缩放效果*/
+.tooltip-effect-2 .tooltip-con i{
+	-webkit-transform:translate3d(0,20px,0);
+	-moz-transform:translate3d(0,20px,0); 
+	-o-transform:translate3d(0,20px,0); 
+	-ms-transform:translate3d(0,20px,0); 
+	transform:translate3d(0,20px,0); 
+}
+.tooltip-effect-3 .tooltip-con{
+	-webkit-transform:rotate3d(0,1,0,90deg);
+	-moz-transform:rotate3d(0,1,0,90deg); 
+	-o-transform:rotate3d(0,1,0,90deg); 
+	-ms-transform:rotate3d(0,1,0,90deg); 
+	transform:rotate3d(0,1,0,90deg);
+	-webkit-transform-origin:50% 100%;
+	-moz-transform-origin:50% 100%;
+	-o-transform-origin:50% 100%;
+	-ms-transform-origin:50% 100%;
+	transform-origin:50% 100%;
+}
+/*定义图标的缩放效果*/
+.tooltip-effect-3 .tooltip-con i{
+	-webkit-transform:rotate3d(0,1,0,90deg) scale3d(0,0,0);
+	-moz-transform:rotate3d(0,1,0,90deg) scale3d(0,0,0); 
+	-o-transform:rotate3d(0,1,0,90deg) scale3d(0,0,0); 
+	-ms-transform:rotate3d(0,1,0,90deg) scale3d(0,0,0); 
+	transform:rotate3d(0,1,0,90deg) scale3d(0,0,0);
+}
+.tooltip-effect-4 .tooltip-con{
+	-webkit-transform:translate3d(0,-20px,0);
+	-moz-transform:translate3d(0,-20px,0); 
+	-o-transform:translate3d(0,-20px,0); 
+	-ms-transform:translate3d(0,-20px,0) ; 
+	transform:translate3d(0,-20px,0); 
+}
+/*定义图标的缩放效果*/
+.tooltip-effect-4 .tooltip-con i{
+	-webkit-transform:translate3d(0,-20px,0);
+	-moz-transform:translate3d(0,-20px,0); 
+	-o-transform:translate3d(0,-20px,0); 
+	-ms-transform:translate3d(0,-20px,0) ; 
+	transform:translate3d(0,-20px,0); 
+}
+.tooltip-effect-5 .tooltip-con{
+	-webkit-transform: scale3d(0,0,0) rotate3d(0,0,0,90deg);
+	-moz-transform: scale3d(0,0,0) rotate3d(0,0,0,90deg);
+	-o-transform: scale3d(0,0,0) rotate3d(0,0,0,90deg);
+	-ms-transform: scale3d(0,0,0) rotate3d(0,0,0,90deg);
+	transform: scale3d(0,0,0) rotate3d(0,0,0,90deg);
+	-webkit-transform-origin:50% 100%;
+	-moz-transform-origin:50% 100%;
+	-o-transform-origin:50% 100%;
+	-ms-transform-origin:50% 100%;
+	transform-origin:50% 100%;
+}	
+/*定义图标的缩放效果*/
+.tooltip-effect-5 .tooltip-con i{
+	-webkit-transform:scale3d(0,0,0) rotate3d(0,0,0,90deg);
+	-moz-transform:scale3d(0,0,0) rotate3d(0,0,0,90deg); 
+	-o-transform:scale3d(0,0,0) rotate3d(0,0,0,90deg); 
+	-ms-transform:scale3d(0,0,0) rotate3d(0,0,0,90deg); 
+	transform:scale3d(0,0,0) rotate3d(0,0,0,90deg); 
+}
+/*鼠标滑过之前的透明度为0即不显示,鼠标滑过之后透明度为1,显示出来*/
+/*鼠标滑过之后span和i元素回归原来的状态*/
+.tooltip:hover .tooltip-con,
+.tooltip:hover .tooltip-con i{
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0) rotate3d(1,1,1,0) scale3d(1,1,1);
+	-moz-transform: translate3d(0,0,0) rotate3d(1,1,1,0) scale3d(1,1,1);
+	-o-transform: translate3d(0,0,0) rotate3d(1,1,1,0) scale3d(1,1,1);
+	-ms-transform: translate3d(0,0,0) rotate3d(1,1,1,0) scale3d(1,1,1);
+	transform: translate3d(0,0,0) rotate3d(1,1,1,0) scale3d(1,1,1);
+}
